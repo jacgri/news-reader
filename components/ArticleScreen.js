@@ -1,9 +1,11 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { WebView } from 'react-native'
 
-const ArticleScreen = () => {
+const ArticleScreen = (props) => {
+  const url = props.navigation.state.params.id
+
   return (
-    <Text>Article will go here</Text>
+    <WebView source={{uri: `https://theguardian.com/${url}`}} />
   )
 }
 
