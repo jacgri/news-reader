@@ -36,7 +36,7 @@ class HomeScreen extends Component {
   }
 
   componentDidMount () {
-    axios.get(`https://content.guardianapis.com/search?api-key=${API_KEY}`)
+    axios.get(`https://content.guardianapis.com/search?api-key=${API_KEY}&show-fields=thumbnail`)
     .then(response => {
       this.handleNewsUpdate(response)
     })
@@ -52,6 +52,8 @@ class HomeScreen extends Component {
               <NewsItem
                 id={item.id}
                 title={item.webTitle}
+                thumbnail={item.fields.thumbnail}
+                url={item}
                 navigation={this.props.navigation} />
             )}
             keyExtractor={item => item.id}
